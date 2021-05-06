@@ -4,10 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
 import javax.swing.JPanel;
 
 public class MyProgram extends javax.swing.JFrame implements ActionListener {
@@ -37,12 +33,12 @@ public class MyProgram extends javax.swing.JFrame implements ActionListener {
 
         JPanel header = new JPanel();
         header.setBackground(Color.darkGray);
-        header.setBounds(0, 0, 1000, 80);
+        header.setBounds(0, 0, 1050, 80);
         header.setLayout(new BorderLayout());
 
         JPanel result = new JPanel();
         result.setBackground(Color.white);
-        result.setBounds(370, 90, 620, 820);
+        result.setBounds(370, 90, 660, 820);
         result.setLayout(new BorderLayout());
 
 
@@ -113,6 +109,7 @@ public class MyProgram extends javax.swing.JFrame implements ActionListener {
         districtNum.setBounds(60,340,600,30);
         sidePane.add(districtNum);
 
+
         String distNum[] = {" ","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"};
         JComboBox distD = new JComboBox(distNum);
         distD.setBounds(60, 380, 50, 30);
@@ -147,25 +144,148 @@ public class MyProgram extends javax.swing.JFrame implements ActionListener {
         sidePane.add(label);
 
 
+        JLabel sortedResults = new JLabel();
+        sortedResults.setText("Sorted Results");
+        sortedResults.setHorizontalAlignment(JLabel.CENTER);
+        sortedResults.setVerticalAlignment(JLabel.CENTER);
+        sortedResults.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        sortedResults.setForeground(Color.white);
+        sortedResults.setBounds(60,590,100,30);
+        result.add(sortedResults);
 
+        // (last name, first name, email address, address, age, type of residency, district
+        //number, and gender).
+        String[] columnNames = {"First Name","Last Name", "Email Address", "Address", "Age",
+                "Residence Type", "District Number", "Gender" };
+        Object [][] data = {
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
+                {"Pioquinto", "Leianneza", "pleianneza@gmail.com", "058 Perez Blvd SCCP", "19",
+                        "Resident", "10", "Female"},
 
-
-        String[] columnNames = {"Name","Eye Color","Gender"};
-        Object [][] data = {};
+        };
+        // result.setBounds(370, 90, 620, 820);
         spreadSheet = new JTable(data,columnNames);
-        spreadSheet.setPreferredScrollableViewportSize(new Dimension(900,550));
-        spreadSheet.setBounds(80,120,900,550);
+        spreadSheet.setEnabled(false); // makes the text not editable
+        spreadSheet.setPreferredScrollableViewportSize(new Dimension(800,100));
+        spreadSheet.setBounds(0,0,500,700);
+        spreadSheet.setGridColor(Color.PINK);
         spreadSheet.setFillsViewportHeight(true);
+        spreadSheet.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+
         JScrollPane scrollPane = new JScrollPane(spreadSheet);
-//        spreadSheet.add(scrollPane);
-//        label.add(spreadSheet);
-
-
-
+        add(scrollPane);
+       // scrollPane.setHorizontalScrollEnabled(true);
+        result.add(scrollPane);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Citizen");
-        frame.setSize(1000, 900);
+        frame.setSize(1050, 1000);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
@@ -176,21 +296,15 @@ public class MyProgram extends javax.swing.JFrame implements ActionListener {
 
         image = new ImageIcon("src\\res\\app_logo.png");
         frame.getContentPane().setBackground(Color.black);
-
-//        ImageIcon background=new ImageIcon("src\\res\\background.jpg");
-//        Image img=background.getImage();
-//        Image temp=img.getScaledInstance(1000,900,Image.SCALE_SMOOTH);
-//        background=new ImageIcon(temp);
-//        JLabel back=new JLabel(background);
-//        back.setLayout(null);
-//        frame.add(back);
-
-
-
         frame.setVisible(true);
 
 
 
+    }
+
+    public static boolean isCellEditable() {
+
+        return false;
     }
 
     public static void main(String[] args) {
